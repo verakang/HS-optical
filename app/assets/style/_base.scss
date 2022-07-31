@@ -1,0 +1,36 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', 'Noto Sans TC', sans-serif;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+    height: auto;
+}
+
+.fw-4 {
+    font-weight: 400;
+}
+
+.fw-5 {
+    font-weight: 500;
+}
+
+.fw-7 {
+    font-weight: 700;
+}
+
+.fw-9 {
+    font-weight: 900;
+}
+
+.fs-italic {
+    font-style: italic;
+}
