@@ -1,8 +1,7 @@
 "use strict";
 
-console.log('Hello!');
 $(document).ready(function () {
-  $('.mav-x-mobile').on('click', function (e) {
+  $('.nav-x-mobile').on('click', function (e) {
     e.preventDefault();
     $('.nav-item').slideToggle('show-item');
   });
