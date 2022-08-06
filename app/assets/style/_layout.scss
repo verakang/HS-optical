@@ -6,17 +6,13 @@ body {
     max-width: 1320px;
     padding: 0 12px;
     margin: 0 auto;
-}
 
-@include pad {
-    .container {
-        padding: 0 36px;
+    @include pad {
+        max-width: 720px;
     }
 }
 
-
 // ----- top -----
-
 
 .top {
     background-color: $main-color;
@@ -56,48 +52,11 @@ body {
     justify-content: space-between;
     width: 40%;
 
-    .nav-item {
-        font-size: 20px;
-
-        a {
-            display: block;
-            padding: 8px;
-            text-decoration: none;
-            color: #fff;
-
-            &:hover {
-                opacity: 0.8;
-            }
-        }
-    }
-}
-
-.mav-x-mobile {
-    display: none;
-    color: #fff;
-}
-
-@include pad {
-    .nav-list {
+    @include pad {
         width: 60%;
     }
-}
 
-@include mobile {
-    .nav-list {
-        width: 75%;
-    }
-}
-
-@include x-mobile {
-    .top {
-        .container {
-            padding-top: 15px;
-            padding-bottom: 15px;
-        }
-    }
-
-    .nav-list {
+    @include mobile {
         width: 100%;
         flex-direction: column;
         align-items: center;
@@ -105,31 +64,56 @@ body {
         top: 80px;
         left: 0;
         padding: 0;
+    }
 
-        .nav-item {
+    .nav-item {
+        font-size: 20px;
+
+        @include mobile {
             background-color: $main-color;
+            border-bottom: 2px solid $main-color;
             display: none;
 
             &:hover {
-                background-color: $main-darken;
+                border-bottom: 2px solid #fff;
             }
+        }
 
-            a {
+        a {
+            display: block;
+            padding: 8px;
+            text-decoration: none;
+            color: #fff;
+
+            @include mobile {
                 display: block;
-                width: 576px;
+                width: 767px;
                 padding: 16px 0;
                 text-align: center;
             }
-        }
 
-        .show-item {
-            display: block;
+            &:hover {
+                opacity: 0.8;
+
+                @include mobile {
+                    opacity: 1;
+                }
+            }
         }
     }
+}
 
-    .mav-x-mobile {
+.nav-x-mobile {
+    display: none;
+    color: #fff;
+
+    @include mobile {
         display: block;
     }
+}
+
+.show-item {
+    display: block;
 }
 
 // ----- footer -----
@@ -145,6 +129,10 @@ footer {
 
         div {
             width: 90%;
+
+            @include mobile {
+                width: 100%;
+            }
         }
     }
 }
@@ -153,6 +141,14 @@ footer {
     display: flex;
     justify-content: space-between;
     width: 45%;
+
+    @include pad {
+        width: 65%;
+    }
+
+    @include mobile {
+        display: none;
+    }
 
     a {
         text-decoration: none;
@@ -173,10 +169,22 @@ footer {
     flex-direction: column;
     font-family: 'Noto Sans TC', sans-serif;
 
+    @include mobile {
+        padding-top: 0;
+    }
+
     .footer-tel {
         font-size: 36px;
         text-decoration: none;
         color: #fff;
+
+        @include mobile {
+            font-size: 28px;
+        }
+
+        @include x-mobile {
+            font-size: 18px;
+        }
 
         &:hover {
             opacity: 0.8;
@@ -186,6 +194,16 @@ footer {
             font-size: 36px;
             margin-right: 22px;
             vertical-align: -5px;
+
+            @include mobile {
+                font-size: 28px;
+                margin-right: 8px;
+            }
+
+            @include x-mobile {
+                font-size: 18px;
+                margin-right: 4px;
+            }
         }
     }
 
@@ -195,6 +213,14 @@ footer {
         text-decoration: none;
         color: #fff;
 
+        @include mobile {
+            font-size: 28px;
+        }
+
+        @include x-mobile {
+            font-size: 18px;
+        }
+
         &:hover {
             opacity: 0.8;
         }
@@ -203,6 +229,16 @@ footer {
             font-size: 36px;
             margin-right: 22px;
             vertical-align: -5px;
+
+            @include mobile {
+                font-size: 28px;
+                margin-right: 8px;
+            }
+
+            @include x-mobile {
+                font-size: 18px;
+                margin-right: 4px;
+            }
         }
     }
 }
@@ -211,11 +247,21 @@ footer {
     display: flex;
     width: 208px;
 
+    @include x-mobile {
+        display: flex;
+        width: 120px;
+    }
+
     img {
         width: 48px;
         height: 48px;
         margin-right: 8px;
         margin-left: 8px;
+
+        @include x-mobile {
+            width: 24px;
+            height: 24px;
+        }
 
         &:hover {
             opacity: 0.8;
@@ -230,6 +276,11 @@ footer {
     padding-top: 32px;
     border-top: 1px solid #fff;
 
+    @include mobile {
+        flex-direction: column;
+        align-items: start;
+    }
+
     p {
         color: #fff;
         font-size: 16px;
@@ -240,6 +291,11 @@ footer {
         justify-content: space-between;
         width: 174px;
 
+        @include mobile {
+            flex-direction: column;
+            margin-top: 16px;
+        }
+
         a {
             text-decoration: none;
             color: #fff;
@@ -248,90 +304,6 @@ footer {
             &:hover {
                 opacity: 0.8;
             }
-        }
-    }
-}
-
-@include pad {
-    .web-link {
-        width: 65%;
-    }
-}
-
-@include mobile {
-    footer {
-        .footer-links {
-            div {
-                width: 100%;
-            }
-        }
-    }
-
-    .web-link {
-        display: none;
-    }
-
-    .footer-contact {
-        padding-top: 0;
-
-        .footer-tel {
-            font-size: 28px;
-
-            span {
-                font-size: 28px;
-                margin-right: 8px;
-            }
-        }
-
-        .footer-mail {
-            font-size: 28px;
-
-            span {
-                font-size: 28px;
-                margin-right: 8px;
-            }
-        }
-    }
-
-    .footer-copyright {
-        flex-direction: column;
-        align-items: start;
-
-        .copyright-link {
-            margin-top: 16px;
-        }
-    }
-}
-
-
-@include x-mobile {
-    .footer-contact {
-        .footer-tel {
-            font-size: 18px;
-
-            span {
-                font-size: 18px;
-                margin-right: 4px;
-            }
-        }
-
-        .footer-mail {
-            font-size: 18px;
-
-            span {
-                font-size: 18px;
-                margin-right: 4px;
-            }
-        }
-    }
-
-    .sns-link {
-        display: flex;
-        width: 120px;
-
-        img {
-            width: 24px;
-            height: 24px;
         }
     }
 }
